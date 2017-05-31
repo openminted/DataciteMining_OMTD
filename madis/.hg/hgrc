@@ -1,0 +1,4 @@
+[paths]
+default = http://code.google.com/p/madis
+[extensions]
+hgext.fetch=
