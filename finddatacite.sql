@@ -1,9 +1,9 @@
 PRAGMA temp_store_directory = '.';
 
 
---create table docs as select 1 as id,c2 as text from (setschema 'c2' xmlparse root:sofa '{"sofa/@/sofastring":"Hello world."}' select * from stdinput());
-create temp table docs
-as select * from (setschema 'id, text' select jdictsplit(c1, 'id', 'text') from stdinput()) where text <>'' and text not null;
+create temp table docs as select 1 as id,c2 as text from (setschema 'c2' xmlparse root:sofa '{"sofa/@/sofastring":"Hello world."}' select * from stdinput());
+--create temp table docs
+-- as select * from (setschema 'id, text' select jdictsplit(c1, 'id', 'text') from stdinput()) where text <>'' and text not null;
 
 create temp table output_table as select docid, doi as id, sqroot(min(1.49,max(confidence))/1.5) as c1 from
 (
